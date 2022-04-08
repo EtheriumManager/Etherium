@@ -1897,31 +1897,13 @@ function library:CreateWindow(name, size, hidebutton)
                 return toggle
             end
 
-            function sector:AddTextbox(text, default, callback, flag)
+            function sector:AddTextbox(text, callback, flag)
                 local textbox = { }
                 textbox.text = text or ""
                 textbox.callback = callback or function() end
                 textbox.default = default
                 textbox.value = ""
                 textbox.flag = flag or text or ""
-
-                textbox.Label = Instance.new("TextButton", sector.Items)
-                textbox.Label.Name = "Label"
-                textbox.Label.AutoButtonColor = false
-                textbox.Label.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-                textbox.Label.BackgroundTransparency = 1
-                textbox.Label.Position = UDim2.fromOffset(sector.Main.Size.X.Offset, 0)
-                textbox.Label.Size = UDim2.fromOffset(sector.Main.Size.X.Offset - 12, 0)
-                textbox.Label.Font = window.theme.font
-                textbox.Label.ZIndex = 5
-                textbox.Label.Text = textbox.text
-                textbox.Label.TextColor3 = window.theme.itemscolor
-                textbox.Label.TextSize = 15
-                textbox.Label.TextStrokeTransparency = 1
-                textbox.Label.TextXAlignment = Enum.TextXAlignment.Left
-                updateevent.Event:Connect(function(theme)
-                    textbox.Label.Font = theme.font
-                end)
 
                 textbox.Holder = Instance.new("Frame", sector.Items)
                 textbox.Holder.Name = "holder"
